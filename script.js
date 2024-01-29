@@ -1,15 +1,18 @@
 function isSameType(value1, value2) {
-  //your js code here
-	let a=typeof(value1);
-	let b =typeof(value2);
-	if(value1==NaN && value2==NaN){
-		return true;
-	}
-	else if(a===b && a!=NaN && b!=NaN){
-		return true;
-	}else{
-		return false;
-	}
+  if (isNaN(value1) && isNaN(value2)) {
+    return true;
+  }
+
+  // Convert values to numbers if they are numeric strings
+  if (!isNaN(value1)) {
+    value1 = parseFloat(value1);
+  }
+
+  if (!isNaN(value2)) {
+    value2 = parseFloat(value2);
+  }
+
+  return typeof value1 === typeof value2;
 }
 
 // do not change the code below.
